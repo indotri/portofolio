@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratindo Tri Akta | IT Specialist Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark Theme Variables */
+            --bg-color: #0b1120;
+            --glass-card: rgba(30, 41, 59, 0.4); /* Dark Glass */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8; /* Cyan Blue ala iOS */
+            --accent-glow: rgba(56, 189, 248, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- BACKGROUND ANIMATION (IOS BUBBLES) --- */
+        .background-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #0b1120;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        /* Warna blob disesuaikan agar masuk dengan dark theme */
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4338ca; animation-delay: 0s; } /* Indigo */
+        .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #0e7490; animation-delay: -2s; } /* Cyan */
+        .blob-3 { top: 40%; left: 30%; width: 40vw; height: 40vw; background: #701a75; animation-delay: -4s; } /* Purple */
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 40px) scale(1.05); }
+        }
+
+        /* --- GLOBAL STYLES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        /* --- GLASS COMPONENT --- */
+        .glass {
+            background: var(--glass-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--accent), #2563eb);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 0 15px var(--accent-glow);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 25px var(--accent-glow); }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+        .logo span { color: var(--accent); }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); text-shadow: 0 0 10px var(--accent-glow); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h3 { font-size: 1.5rem; color: var(--accent); margin-bottom: 10px; }
+        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 700; }
+        .hero-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; max-width: 500px; }
+        
+        .hero-img-box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            position: relative;
+            z-index: 2;
+            border: 2px solid var(--glass-border);
+        }
+        
+        /* Decorative circle behind image */
+        .hero-circle {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* --- SERVICES / SKILLS (Grid Layout) --- */
+        .services-section { padding: 80px 0; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 30px;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .service-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.08); }
+        .service-icon { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        .service-card h3 { margin-bottom: 15px; }
+        .service-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- PROJECTS / EXPERIENCE (Timeline Grid) --- */
+        .projects-section { padding: 80px 0; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            padding: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .project-card:hover { transform: scale(1.02); border-color: var(--accent); }
+
+        .project-header {
+            height: 140px;
+            background: linear-gradient(45deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .project-body { padding: 25px; flex-grow: 1; }
+        .project-client { 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            color: var(--accent); 
+            letter-spacing: 1px; 
+            margin-bottom: 5px;
+            display: block;
+        }
+        .project-title { font-size: 1.3rem; margin-bottom: 10px; }
+        .project-desc { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- CONTACT --- */
+        .contact-section { padding: 80px 0 40px; text-align: center; }
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .contact-item { margin: 20px 0; font-size: 1.1rem; }
+        .contact-item i { margin-right: 10px; color: var(--accent); }
+        .contact-item a { color: var(--text-main); text-decoration: none; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .hero-img-box { width: 280px; height: 280px; margin-bottom: 20px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            nav { width: 95%; padding: 15px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="glass">
+        <div class="logo">Pratindo<span>.Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3>Hello, I'm</h3>
+                    <h1>Pratindo Tri Akta</h1>
+                    <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--text-muted);">
+                        I am a <span id="typing-text" style="color: var(--text-main);"></span>
+                    </h2>
+                    <p>Lulusan Teknik Komputer & Jaringan yang menguasai Web Development (PHP/Laravel), Data Engineering, dan Infrastruktur Jaringan.</p>
+                    <a href="#contact" class="btn">Hire Me</a>
+                    <a href="#projects" class="btn" style="background: transparent; border: 1px solid var(--accent); margin-left: 10px;">View Work</a>
+                </div>
+                <div class="hero-img-box">
+                    <div class="hero-circle"></div>
+                    <img src="me.png" alt="Pratindo Profile" class="hero-img"> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <p class="section-subtitle">Technical Expertise</p>
+            
+            <div class="services-grid">
+                <div class="glass service-card">
+                    <i class="fas fa-network-wired service-icon"></i>
+                    <h3>Network Engineer</h3>
+                    <p>Instalasi server, maintenance jaringan, dan pengelolaan topologi jaringan.</p>
+                </div>
+                <div class="glass service-card">
+                    <i class="fab fa-laravel service-icon"></i> <h3>Laravel Developer</h3>
+                    <p>Membangun sistem backend handal menggunakan bahasa PHP dan Framework Laravel.</p>
+                </div>
+                <div class="glass service-card">
+                    <i class="fas fa-database service-icon"></i>
+                    <h3>Data Engineering</h3>
+                    <p>Pengelolaan database, analisis data, dan optimalisasi struktur data skala besar.</p>
+                </div>
+                <div class="glass service-card">
+                    <i class="fas fa-server service-icon"></i>
+                    <h3>Hardware & CCTV</h3>
+                    <p>Instalasi CCTV dan maintenance perangkat keras komputer skala industri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Experience at CV. Bintang Karya Nusantara</p>
+
+            <div class="project-grid">
+                <div class="glass project-card">
+                    <div class="project-header"><i class="fas fa-camera"></i></div>
+                    <div class="project-body">
+                        <span class="project-client">TELKOM SURABAYA</span>
+                        <h3 class="project-title">CCTV Monitoring System</h3>
+                        <p class="project-desc">Pemasangan jaringan CCTV untuk memantau lalu lintas jalan yang tersebar di beberapa titik strategis Surabaya.</p>
+                    </div>
+                </div>
+
+                <div class="glass project-card">
+                    <div class="project-header"><i class="fas fa-tint"></i></div>
+                    <div class="project-body">
+                        <span class="project-client">PDAM SURABAYA</span>
+                        <h3 class="project-title">Water Pressure Sensors</h3>
+                        <p class="project-desc">Instalasi sensor tekanan air digital pada pipa distribusi yang tersebar di wilayah Surabaya.</p>
+                    </div>
+                </div>
+
+                <div class="glass project-card">
+                    <div class="project-header"><i class="fas fa-server"></i></div>
+                    <div class="project-body">
+                        <span class="project-client">DISHUB SIDOARJO</span>
+                        <h3 class="project-title">Server Maintenance</h3>
+                        <p class="project-desc">Pemeliharaan dan optimasi jaringan server utama yang terhubung dengan sistem CCTV Sidoarjo.</p>
+                    </div>
+                </div>
+
+                <div class="glass project-card">
+                    <div class="project-header"><i class="fas fa-ship"></i></div>
+                    <div class="project-body">
+                        <span class="project-client">PELABUHAN TJ. PERAK</span>
+                        <h3 class="project-title">Port Network Installation</h3>
+                        <p class="project-desc">Instalasi server menghubungkan CCTV keamanan di wilayah Pelabuhan Nilam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="glass contact-box">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>Tertarik bekerja sama atau memiliki pertanyaan? Hubungi saya.</p>
+                
+                <div style="margin-top: 30px; text-align: left;">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i> 
+                        <a href="https://wa.me/6281334158775">0813-3415-8775</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i> 
+                        <a href="mailto:tkjpratindotriakta@gmail.com">tkjpratindotriakta@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <span>Surabaya, Indonesia</span>
+                    </div>
+                </div>
+                
+                <a href="mailto:tkjpratindotriakta@gmail.com" class="btn" style="margin-top: 20px; width: 100%;">Send Email</a>
+            </div>
+            
+            <footer style="margin-top: 50px; opacity: 0.5; font-size: 0.8rem;">
+                &copy; 2025 Pratindo Tri Akta. Designed with Glassmorphism.
+            </footer>
+        </div>
+    </section>
+
+    <script>
+        const textElement = document.getElementById('typing-text');
+        // UPDATED: Text animation now includes Data Engineering & Laravel
+        const phrases = ['Network Engineer.', 'Laravel Developer.', 'Data Engineer.'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+</html>
