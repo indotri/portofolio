@@ -1,0 +1,416 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-0: #0a0f11;
+    --bg-1: #0d1416;
+    --surface-0: #11191c;
+    --surface-1: #151e21;
+    --surface-2: #1b2528;
+
+    --text-strong: #f3f7f6;
+    --text: #d5dddd;
+    --text-muted: #8f9b9d;
+    --text-faint: #657174;
+
+    --line: rgba(220, 245, 242, 0.12);
+    --line-strong: rgba(220, 245, 242, 0.20);
+
+    --ice: #e9f7f5;
+    --ice-text: #0d1719;
+
+    --aqua: #9fe6e0;
+    --cyan: #79dce0;
+    --teal: #3caeb1;
+    --violet: #b597ff;
+    --pink: #e8a7c7;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    --container: 1120px;
+    --gutter: 24px;
+  }
+
+  body {
+    background-color: var(--bg-0);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Technical Grid Pattern from design.md Section 5 */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(180, 220, 220, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 220, 220, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Atmospheric Glow Effect with soft white light flare */
+.glow-ambient {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.20), transparent 30%),
+    radial-gradient(circle at 50% 55%, rgba(95, 183, 180, 0.22), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(84, 147, 184, 0.15), transparent 50%);
+}
+
+/* GitBook Buttons from design.md Section 10 */
+.btn-ice {
+  background-color: var(--ice);
+  color: var(--ice-text);
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(159, 230, 224, 0.2);
+}
+
+.btn-ice:hover {
+  background-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(159, 230, 224, 0.35);
+}
+
+.btn-outline-gitbook {
+  background: transparent;
+  color: var(--text-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-gitbook:hover {
+  border-color: var(--aqua);
+  color: var(--aqua);
+  background: rgba(159, 230, 224, 0.05);
+}
+
+/* GitBook Standard Dark Card from design.md Section 9 */
+.card-gitbook {
+  background: rgba(22, 30, 33, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+  transition: all 0.2s ease;
+}
+
+.card-gitbook:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+/* Light Promotional Panel with Enhanced Glow & Light Flare */
+.promo-ice {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #eaf8f6 40%, #d4f3ef 100%);
+  color: var(--ice-text);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 25px rgba(159, 230, 224, 0.4),
+    0 0 50px rgba(121, 220, 224, 0.25),
+    0 20px 40px -15px rgba(0, 0, 0, 0.35);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.promo-ice:hover {
+  box-shadow: 
+    0 0 35px rgba(159, 230, 224, 0.6),
+    0 0 70px rgba(121, 220, 224, 0.35),
+    0 25px 50px -10px rgba(0, 0, 0, 0.45);
+}
+
+.promo-ice::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: promoShimmer 6s infinite ease-in-out;
+}
+
+@keyframes promoShimmer {
+  0%, 70% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Page Container from design.md Section 4 */
+.page-container {
+  width: min(calc(100% - 48px), var(--container));
+  margin-inline: auto;
+}
+
+/* Premium Frosted Glass Navbar (Translucent & Soft Matte Blur) */
+.navbar-frosted-glass,
+.navbar-liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 35, 45, 0.45) 0%,
+    rgba(6, 24, 32, 0.55) 50%,
+    rgba(3, 14, 20, 0.65) 100%
+  );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 12px 36px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navbar-frosted-glass-scrolled,
+.navbar-liquid-glass-scrolled {
+  background: linear-gradient(
+    135deg,
+    rgba(12, 32, 42, 0.6) 0%,
+    rgba(5, 20, 27, 0.7) 50%,
+    rgba(3, 12, 17, 0.8) 100%
+  );
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  box-shadow: 
+    0 16px 45px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Realistic Ultra Liquid Glass Refraction Effect - Dark Petrol / Mint Glow */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 26, 34, 0.75) 0%,
+    rgba(4, 18, 25, 0.85) 50%,
+    rgba(2, 10, 15, 0.95) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(45, 212, 191, 0.18);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.09),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.8s;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  left: 150%;
+}
+
+.glass-card:hover {
+  border-color: rgba(45, 212, 191, 0.45);
+  box-shadow: 
+    0 20px 50px 0 rgba(20, 184, 166, 0.22),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.glass-card-amber,
+.glass-card-cyan {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 184, 166, 0.15) 0%,
+    rgba(6, 26, 34, 0.85) 50%,
+    rgba(3, 12, 17, 0.95) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px 0 rgba(153, 246, 228, 0.25),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card-amber::before,
+.glass-card-cyan::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(153, 246, 228, 0.15),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.8s;
+  pointer-events: none;
+}
+
+.glass-card-amber:hover::before,
+.glass-card-cyan:hover::before {
+  left: 150%;
+}
+
+.glass-card-amber:hover,
+.glass-card-cyan:hover {
+  border-color: rgba(94, 234, 212, 0.7);
+  box-shadow: 
+    0 20px 50px 0 rgba(45, 212, 191, 0.28),
+    inset 0 1px 2px 0 rgba(153, 246, 228, 0.35),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Translucent Mint / Teal Gel Pills */
+.glass-pill {
+  background: rgba(20, 184, 166, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.glass-pill-amber,
+.glass-pill-cyan {
+  background: rgba(45, 212, 191, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.18), inset 0 1px 1px rgba(153, 246, 228, 0.25);
+}
+
+.glass-input {
+  background: rgba(5, 20, 27, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.22);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #2dd4bf;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.35), inset 0 1px 0 rgba(153, 246, 228, 0.25);
+}
+
+.liquid-text-emerald,
+.liquid-text-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #5eead4 40%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(45, 212, 191, 0.35));
+}
+
+.liquid-text-gold,
+.liquid-text-sky {
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 45%, #2dd4bf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(153, 246, 228, 0.3));
+}
+
+/* Enhanced Organic Liquid Morph Animation */
+@keyframes liquidMorph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.08);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    transform: rotate(180deg) scale(0.95);
+  }
+  75% {
+    border-radius: 60% 30% 50% 40% / 70% 40% 50% 60%;
+    transform: rotate(270deg) scale(1.04);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-liquid-morph {
+  animation: liquidMorph 16s ease-in-out infinite alternate;
+}
+
+/* Custom Liquid Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #030c11;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.6), rgba(13, 148, 136, 0.7));
+  border-radius: 5px;
+  border: 2px solid #030c11;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2dd4bf, #14b8a6);
+}
+
+/* Lightweight Slow Breathing Pulse for Ambient Backgrounds */
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 8s ease-in-out infinite;
+}
