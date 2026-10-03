@@ -23,12 +23,12 @@ export default function EngineeringDocsSection({ onNavigate }: EngineeringDocsSe
       badge: 'PDAM Surya Sembada',
       code: (
         <div className="space-y-1 text-xs font-mono">
-          <p className="text-[#8f9b9d]">// PDAM Surya Sembada Surabaya - Sensor Tekanan Air Pipa</p>
+          <p className="text-[#8f9b9d]">{'// PDAM Surya Sembada Surabaya - Sensor Tekanan Air Pipa'}</p>
           <p><span className="text-[#b597ff]">export interface</span> <span className="text-[#9fe6e0]">WaterPressureSensor</span> &#123;</p>
-          <p className="pl-4">sensorId: <span className="text-[#79dce0]">'PDAM-SURABAYA-SENS-04'</span>;</p>
-          <p className="pl-4">location: <span className="text-[#79dce0]">'Pipa Utama Distribusi Air Surabaya'</span>;</p>
-          <p className="pl-4">pressureBar: <span className="text-[#79dce0]">4.2</span>; <span className="text-[#8f9b9d]">// Telemetry Real-time</span></p>
-          <p className="pl-4">protectionGrade: <span className="text-[#79dce0]">'IP67 Waterproof Outdoor'</span>;</p>
+          <p className="pl-4">sensorId: <span className="text-[#79dce0]">&apos;PDAM-SURABAYA-SENS-04&apos;</span>;</p>
+          <p className="pl-4">location: <span className="text-[#79dce0]">&apos;Pipa Utama Distribusi Air Surabaya&apos;</span>;</p>
+          <p className="pl-4">pressureBar: <span className="text-[#79dce0]">4.2</span>; <span className="text-[#8f9b9d]">{'// Telemetry Real-time'}</span></p>
+          <p className="pl-4">protectionGrade: <span className="text-[#79dce0]">&apos;IP67 Waterproof Outdoor&apos;</span>;</p>
           <p className="pl-4">telemetryIntervalMs: <span className="text-[#79dce0]">5000</span>;</p>
           <p>&#125;</p>
         </div>
@@ -42,13 +42,13 @@ export default function EngineeringDocsSection({ onNavigate }: EngineeringDocsSe
       badge: 'Telkom Indonesia',
       code: (
         <div className="space-y-1 text-xs font-mono">
-          <p className="text-[#8f9b9d]">// PT Telkom Surabaya - CCTV & Fiber Optic Network</p>
+          <p className="text-[#8f9b9d]">{'// PT Telkom Surabaya - CCTV & Fiber Optic Network'}</p>
           <p><span className="text-[#b597ff]">export interface</span> <span className="text-[#9fe6e0]">FiberOpticCctvNode</span> &#123;</p>
-          <p className="pl-4">nodeId: <span className="text-[#79dce0]">'TELKOM-SUB-CCTV-08'</span>;</p>
-          <p className="pl-4">location: <span className="text-[#79dce0]">'Tiang Monitoring CCTV Kota Surabaya'</span>;</p>
-          <p className="pl-4">spliceLossDb: <span className="text-[#79dce0]">0.03</span>; <span className="text-[#8f9b9d]">// OTDR Passed (&lt; 0.1 dB)</span></p>
-          <p className="pl-4">cableType: <span className="text-[#79dce0]">'Fiber Optic Single-Mode Core'</span>;</p>
-          <p className="pl-4">streamProtocol: <span className="text-[#79dce0]">'RTSP / Managed Switch PoE'</span>;</p>
+          <p className="pl-4">nodeId: <span className="text-[#79dce0]">&apos;TELKOM-SUB-CCTV-08&apos;</span>;</p>
+          <p className="pl-4">location: <span className="text-[#79dce0]">&apos;Tiang Monitoring CCTV Kota Surabaya&apos;</span>;</p>
+          <p className="pl-4">spliceLossDb: <span className="text-[#79dce0]">0.03</span>; <span className="text-[#8f9b9d]">{'// OTDR Passed (< 0.1 dB)'}</span></p>
+          <p className="pl-4">cableType: <span className="text-[#79dce0]">&apos;Fiber Optic Single-Mode Core&apos;</span>;</p>
+          <p className="pl-4">streamProtocol: <span className="text-[#79dce0]">&apos;RTSP / Managed Switch PoE&apos;</span>;</p>
           <p>&#125;</p>
         </div>
       ),
@@ -61,14 +61,14 @@ export default function EngineeringDocsSection({ onNavigate }: EngineeringDocsSe
       badge: 'Dishub Sidoarjo',
       code: (
         <div className="space-y-1 text-xs font-mono">
-          <p className="text-[#8f9b9d]">// Dishub Sidoarjo - Server Rack & Network Config</p>
+          <p className="text-[#8f9b9d]">{'// Dishub Sidoarjo - Server Rack & Network Config'}</p>
           <p><span className="text-[#b597ff]">export interface</span> <span className="text-[#9fe6e0]">DataCenterServerConfig</span> &#123;</p>
-          <p className="pl-4">serverId: <span className="text-[#79dce0]">'DISHUB-SDA-SRV-01'</span>;</p>
-          <p className="pl-4">rackLocation: <span className="text-[#79dce0]">'Data Center Dishub Sidoarjo'</span>;</p>
-          <p className="pl-4">osSystem: <span className="text-[#79dce0]">'Linux Ubuntu Server 22.04 LTS'</span>;</p>
-          <p className="pl-4">ipAddress: <span className="text-[#79dce0]">'192.168.10.2'</span>;</p>
-          <p className="pl-4">firewallStatus: <span className="text-[#79dce0]">'ACTIVE (UFW Firewall)'</span>;</p>
-          <p className="pl-4">targetUptime: <span className="text-[#79dce0]">'99.9%'</span>;</p>
+          <p className="pl-4">serverId: <span className="text-[#79dce0]">&apos;DISHUB-SDA-SRV-01&apos;</span>;</p>
+          <p className="pl-4">rackLocation: <span className="text-[#79dce0]">&apos;Data Center Dishub Sidoarjo&apos;</span>;</p>
+          <p className="pl-4">osSystem: <span className="text-[#79dce0]">&apos;Linux Ubuntu Server 22.04 LTS&apos;</span>;</p>
+          <p className="pl-4">ipAddress: <span className="text-[#79dce0]">&apos;192.168.10.2&apos;</span>;</p>
+          <p className="pl-4">firewallStatus: <span className="text-[#79dce0]">&apos;ACTIVE (UFW Firewall)&apos;</span>;</p>
+          <p className="pl-4">targetUptime: <span className="text-[#79dce0]">&apos;99.9%&apos;</span>;</p>
           <p>&#125;</p>
         </div>
       ),
